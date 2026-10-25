@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Loan Eligibility
+{% endblock %}
+
+
+{% block content %}
+
+<div class="card">
+
+    <h1>Loan Eligibility Checker</h1>
+
+    <hr>
+
+    <h3>Applicant Details</h3>
+
+    <p>
+        <strong>Age:</strong>
+        {{ age }}
+    </p>
+
+    <p>
+        <strong>Monthly Salary:</strong>
+        ₹{{ salary }}
+    </p>
+
+    <p>
+        <strong>Credit Score:</strong>
+        {{ credit_score }}
+    </p>
+
+    <hr>
+
+    <h3>Result</h3>
+
+    <div class="result">
+        {{ result }}
+    </div>
+
+</div>
+
+{% endblock %}

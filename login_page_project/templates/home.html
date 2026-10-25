@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <span class="navbar-brand">My Website</span>
+        <div>
+            <span class="text-white me-3">Welcome, {{ user.username }}</span>
+            <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+        </div>
+        
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-body text-center">
+            <h1>Welcome {{ user.username }} </h1>
+            <p>You have successfully logged in.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

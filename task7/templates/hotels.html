@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Hotel Rooms
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Hotel Room Listing</h1>
+
+<div class="rooms">
+
+    {% for hotel in room %}
+
+    <div class="room-card">
+
+        <h2>Room {{ hotel.room_number }}</h2>
+
+        <p>
+            Room Type: {{ hotel.room_type }}
+        </p>
+
+        <p class="price">
+            Price: {{ hotel.price }}
+        </p>
+
+        {% if hotel.room_type == "Deluxe" %}
+            <p style="color: blue;">
+                Premium Room ⭐
+            </p>
+        {% endif %}
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

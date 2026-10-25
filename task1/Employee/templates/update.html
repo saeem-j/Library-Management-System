@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h2>
+    Update Employee
+</h2>
+
+
+<form method="POST">
+
+    {% csrf_token %}
+
+
+    <div class="mb-3">
+
+        <label>
+            Name
+        </label>
+
+        <input
+            type="text"
+            name="nm"
+            value="{{ employee.name }}"
+            class="form-control"
+            required>
+
+    </div>
+
+
+    <div class="mb-3">
+
+        <label>
+            Email
+        </label>
+
+        <input
+            type="email"
+            name="em"
+            value="{{ employee.email }}"
+            class="form-control"
+            required>
+
+    </div>
+
+
+    <div class="mb-3">
+
+        <label>
+            Age
+        </label>
+
+        <input
+            type="number"
+            name="ag"
+            value="{{ employee.age }}"
+            class="form-control"
+            required>
+
+    </div>
+
+
+    <div class="mb-3">
+
+        <label>
+            Salary
+        </label>
+
+        <input
+            type="number"
+            name="sal"
+            value="{{ employee.salary }}"
+            class="form-control"
+            required>
+
+    </div>
+
+
+    <div class="mb-3">
+
+        <label>
+            Department
+        </label>
+
+        <select
+            name="dep"
+            class="form-select"
+            required>
+
+
+            {% for i in dep_data %}
+
+            <option
+                value="{{ i.id }}"
+                {% if employee.department_id == i.id %}
+                    selected
+                {% endif %}>
+
+                {{ i.name }}
+
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+    </div>
+
+
+    <div class="mb-3">
+
+        <label>
+            Company
+        </label>
+
+        <select
+            name="comp"
+            class="form-select"
+            required>
+
+
+            {% for i in com_data %}
+
+            <option
+                value="{{ i.id }}"
+                {% if employee.company_id == i.id %}
+                    selected
+                {% endif %}>
+
+                {{ i.name }}
+
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+    </div>
+
+
+    <div class="mb-3">
+
+        <label>
+            Address
+        </label>
+
+        <textarea
+            name="add"
+            class="form-control"
+            rows="3"
+            required>{{ employee.address }}</textarea>
+
+    </div>
+
+
+    <button
+        type="submit"
+        class="btn btn-success">
+
+        Update Employee
+
+    </button>
+
+
+    <a
+        href="{% url 'empdata' %}"
+        class="btn btn-secondary">
+
+        Cancel
+
+    </a>
+
+
+</form>
+
+
+{% endblock %}

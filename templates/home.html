@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Home | Library Management{% endblock %}
+{% block content %}
+<section class="hero-card">
+    <div class="book-icon">📚</div>
+    <h1>Library Management System</h1>
+    <p>Manage users, issue books, and view issued-book records from one simple dashboard.</p>
+    <div class="button-row">
+        <a class="btn blue" href="{% url 'signup' %}">Sign Up</a>
+        <a class="btn purple" href="{% url 'login' %}">Login</a>
+    </div>
+</section>
+{% endblock %}

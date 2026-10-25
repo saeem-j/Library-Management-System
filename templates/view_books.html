@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Books | Library Management{% endblock %}
+{% block content %}
+<div class="table-card">
+    <div class="table-head">
+        <div>
+            <h2>📖 Book Details / List</h2>
+            <p class="muted">All currently stored book issue records.</p>
+        </div>
+        <a class="btn blue" href="{% url 'issue_book'  %}">+ Issue Book</a>
+    </div>
+
+    {% if books %}
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Book Name</th>
+                    <th>Book Number</th>
+                    <th>Name of Student</th>
+                    <th>Issue Date</th>
+                    <th>Due Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.book_id }}</td>
+                    <td>{{ book.book_name }}</td>
+                    <td>{{ book.book_number }}</td>
+                    <td>{{ book.student_name }}</td>
+                    <td>{{ book.issue_date|date:"Y-m-d" }}</td>
+                    <td>{{ book.due_date|date:"Y-m-d" }}</td>
+                    <td>
+                        <a class="btn blue" href="{% url 'update_book' book.id %}">Update</a>
+                        <a class="btn red" href="{% url 'delete_book' book.id %}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <div class="empty">No books have been issued yet.</div>
+    {% endif %}
+
+    <a class="btn gray" href="{% url 'dashboard' %}">Back to Dashboard</a>
+</div>
+{% endblock %}

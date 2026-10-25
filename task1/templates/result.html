@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}
+Student Result
+{% endblock %}
+{% block content %}
+    <div class="box">
+    <h1>Student Result Portal</h1>
+    <h2>Name: {{ student.name }}</h2>
+    <p>Marks: {{ student.marks }}</p>
+    <p>Total: {{ total }}</p>
+    <p>Percentage: {{ percentage }}%</p>
+    {% if percentage >= 40 %}
+    <h2 class="pass">PASS</h2>
+    {% else %}
+    <h2 class="fail">FAIL</h2>
+    {% endif %}
+    </div>
+
+{% endblock %}
+ 

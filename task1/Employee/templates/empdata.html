@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h1 class="mb-4">
+    Employee Details
+</h1>
+
+
+<a
+    href="{% url 'addemp' %}"
+    class="btn btn-primary mb-3">
+
+    Add Employee
+
+</a>
+
+
+<div class="table-responsive">
+
+
+<table class="table table-bordered table-striped">
+
+
+<thead class="table-dark">
+
+<tr>
+
+    <th>ID</th>
+
+    <th>Name</th>
+
+    <th>Email</th>
+
+    <th>Age</th>
+
+    <th>Salary</th>
+
+    <th>Department</th>
+
+    <th>Company</th>
+
+    <th>Address</th>
+
+    <th>Actions</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+
+{% for row in employeedata %}
+
+
+<tr>
+
+    <td>
+        {{ row.id }}
+    </td>
+
+
+    <td>
+        {{ row.name }}
+    </td>
+
+
+    <td>
+        {{ row.email }}
+    </td>
+
+
+    <td>
+        {{ row.age }}
+    </td>
+
+
+    <td>
+        {{ row.salary }}
+    </td>
+
+
+    <td>
+
+        {% if row.department %}
+
+            {{ row.department.name }}
+
+        {% else %}
+
+            -
+
+        {% endif %}
+
+    </td>
+
+
+    <td>
+
+        {% if row.company %}
+
+            {{ row.company.name }}
+
+        {% else %}
+
+            -
+
+        {% endif %}
+
+    </td>
+
+
+    <td>
+        {{ row.address }}
+    </td>
+
+
+    <td>
+
+
+        <a
+            href="{% url 'employee_detail' row.id %}"
+            class="btn btn-info btn-sm">
+
+            View
+
+        </a>
+
+
+        <a
+            href="{% url 'update_employee' row.id %}"
+            class="btn btn-success btn-sm">
+
+            Update
+
+        </a>
+
+
+        <a
+            href="{% url 'delete_employee' row.id %}"
+            class="btn btn-danger btn-sm">
+
+            Delete
+
+        </a>
+
+
+    </td>
+
+
+</tr>
+
+
+{% empty %}
+
+
+<tr>
+
+    <td
+        colspan="9"
+        class="text-center">
+
+        No employees found.
+
+    </td>
+
+</tr>
+
+
+{% endfor %}
+
+
+</tbody>
+
+
+</table>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | Library Management{% endblock %}
+{% block content %}
+<div class="dashboard-card">
+    <div class="dashboard-head">
+        <div>
+            <span class="dashboard-icon">🏠</span>
+            <h1>Library Dashboard</h1>
+            <p>Welcome, <strong>{{ user.first_name|default:user.username }}</strong></p>
+        </div>
+        <div class="stat">
+            <strong>{{ total_books }}</strong>
+            <span>Issued Books</span>
+        </div>
+    </div>
+
+    <div class="dashboard-actions">
+        <a class="action blue" href="{% url 'issue_book' %}">➕ Submit (Issue Book)</a>
+        <a class="action purple" href="{% url 'view_books' %}">📖 View Book</a>
+    </div>
+
+    <a class="logout-link" href="{% url 'logout' %}">Logout</a>
+</div>
+{% endblock %}

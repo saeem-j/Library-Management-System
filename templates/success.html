@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Success | Library Management{% endblock %}
+{% block content %}
+<div class="success-card">
+    <div class="success-icon">✓</div>
+    <h2>Book Issued Successfully!</h2>
+    <div class="details">
+        <p><strong>Book Name:</strong> {{ book.book_name }}</p>
+        <p><strong>Student Name:</strong> {{ book.student_name }}</p>
+        <p><strong>Issue Date:</strong> {{ book.issue_date|date:"Y-m-d" }}</p>
+        <p><strong>Due Date:</strong> {{ book.due_date|date:"Y-m-d" }}</p>
+    </div>
+    <div class="button-row">
+        <a class="btn blue" href="{% url 'dashboard' %}">Back to Dashboard</a>
+        <a class="btn purple" href="{% url 'view_books' %}">View Book</a>
+    </div>
+</div>
+{% endblock %}

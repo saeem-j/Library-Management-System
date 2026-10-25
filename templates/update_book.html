@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title %}Update Book | Library Management
+{%endblock %} 
+{% block content %}
+<div class="table-card">
+    <div class="table-head">
+        <div>
+            <h2>📖 Book Details / Update</h2>
+            <p class="muted">All currently stored book issue records.</p>
+        </div>
+        <a class="btn blue" href="{% url 'issue_book' %}">+ Issue Book</a>
+    </div>
+
+   
+<div class="form-card">
+  <h2>Update Book Issue</h2>
+  <p class="muted">Modify the details of the issued book.</p>
+  <form method="post">
+    {% csrf_token %} {{ form.non_field_errors }}
+    <label>Book Name</label>
+    {{ form.book_name }} {{ form.book_name.errors }}
+
+    <label>Book Number</label>
+    {{ form.book_number }} {{ form.book_number.errors }}
+
+    <label>Name of Student</label>
+    {{ form.student_name }} {{ form.student_name.errors }}
+
+    <label>Issue Date</label>
+    {{ form.issue_date }} {{ form.issue_date.errors }}
+
+    <label>Due Date</label>
+    {{ form.due_date }} {{ form.due_date.errors }}
+
+    <button class="btn blue " type="submit">Update Book</button>
+  </form>
+  <a class="btn gray" href="{% url 'view_books' %}">Back to Book List</a>
+</div>
+{% endblock %}

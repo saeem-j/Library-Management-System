@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Hotel Website{% endblock %}</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #222;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 30px auto;
+        }
+
+        .rooms {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .room-card {
+            background-color: white;
+            width: 220px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px gray;
+        }
+
+        .room-card h2 {
+            color: #333;
+        }
+
+        .price {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/hotels/">Hotels</a>
+    </nav>
+
+    <div class="container">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+</body>
+</html>

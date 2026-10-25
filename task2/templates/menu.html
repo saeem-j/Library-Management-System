@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Restaurant Menu
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Restaurant Menu</h1>
+
+<div class="cards">
+
+    {% for food in item %}
+
+    <div class="card">
+
+        <h2>{{ food.name }}</h2>
+
+        <p class="price">
+            ${{ food.price }}
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

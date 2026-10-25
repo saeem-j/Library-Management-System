@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Login | Library Management{% endblock %}
+{% block content %}
+<div class="form-card">
+    <h2>🔐 Login</h2>
+    <p class="muted">Sign in to access your library dashboard.</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <label>Username</label>
+        {{ form.username }}
+        {{ form.username.errors }}
+
+        <label>Password</label>
+        {{ form.password }}
+        {{ form.password.errors }}
+
+        <button class="btn blue full" type="submit">Login</button>
+    </form>
+    <p class="center"><a href="{% url 'signup' %}">Create New Account</a></p>
+</div>
+{% endblock %}

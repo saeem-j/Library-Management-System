@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}
+Course Eligibility
+{% endblock %}
+{% block content %}
+  <div class="box">
+      <h1>College Course Eligibility</h1>
+      <h2>Percentage: {{ percentage }}%</h2>
+      <h3>Eligible Courses</h3>
+      <ul>
+        {% for course in eligible_courses %}
+        <li>{{ course }}</li>
+        {% endfor %}
+      </ul>
+  </div>
+{% endblock %}

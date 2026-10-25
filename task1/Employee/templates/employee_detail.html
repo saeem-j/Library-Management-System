@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h1 class="mb-4">
+    Employee Full Details
+</h1>
+
+
+<div class="card">
+
+    <div class="card-body">
+
+
+        <h3>
+            {{ employee.name }}
+        </h3>
+
+
+        <hr>
+
+
+        <p>
+            <strong>Employee ID:</strong>
+            {{ employee.id }}
+        </p>
+
+
+        <p>
+            <strong>Name:</strong>
+            {{ employee.name }}
+        </p>
+
+
+        <p>
+            <strong>Email:</strong>
+            {{ employee.email }}
+        </p>
+
+
+        <p>
+            <strong>Age:</strong>
+            {{ employee.age }}
+        </p>
+
+
+        <p>
+            <strong>Salary:</strong>
+            {{ employee.salary }}
+        </p>
+
+
+        <p>
+
+            <strong>Department:</strong>
+
+            {% if employee.department %}
+
+                {{ employee.department.name }}
+
+            {% else %}
+
+                Not assigned
+
+            {% endif %}
+
+        </p>
+
+
+        <p>
+
+            <strong>Company:</strong>
+
+            {% if employee.company %}
+
+                {{ employee.company.name }}
+
+            {% else %}
+
+                Not assigned
+
+            {% endif %}
+
+        </p>
+
+
+        <p>
+
+            <strong>Address:</strong>
+
+            {{ employee.address }}
+
+        </p>
+
+
+        <hr>
+
+
+        <a
+            href="{% url 'update_employee' employee.id %}"
+            class="btn btn-success">
+
+            Update
+
+        </a>
+
+
+        <a
+            href="{% url 'delete_employee' employee.id %}"
+            class="btn btn-danger">
+
+            Delete
+
+        </a>
+
+
+        <a
+            href="{% url 'empdata' %}"
+            class="btn btn-secondary">
+
+            Back
+
+        </a>
+
+
+    </div>
+
+</div>
+
+
+{% endblock %}

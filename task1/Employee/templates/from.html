@@ -1,0 +1,83 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2 class="mb-4">Add Employee</h2>
+
+<form method="POST">
+  {% csrf_token %}
+
+  <!-- NAME -->
+
+  <div class="mb-3">
+    <label class="form-label"> Name </label>
+
+    <input type="text" name="nm" class="form-control" required />
+  </div>
+
+  <!-- EMAIL -->
+
+  <div class="mb-3">
+    <label class="form-label"> Email </label>
+
+    <input type="email" name="em" class="form-control" required />
+  </div>
+
+  <!-- AGE -->
+
+  <div class="mb-3">
+    <label class="form-label"> Age </label>
+
+    <input type="number" name="ag" class="form-control" required />
+  </div>
+
+  <!-- SALARY -->
+
+  <div class="mb-3">
+    <label class="form-label"> Salary </label>
+
+    <input type="number" name="sal" class="form-control" required />
+  </div>
+
+  <!-- DEPARTMENT -->
+
+  <div class="mb-3">
+    <label class="form-label"> Department </label>
+
+    <select name="dep" class="form-select" required>
+      <option value="">Select Department</option>
+
+      {% for i in dep_data %}
+
+      <option value="{{ i.id }}">{{ i.name }}</option>
+
+      {% endfor %}
+    </select>
+  </div>
+
+  <!-- COMPANY -->
+
+  <div class="mb-3">
+    <label class="form-label"> Company </label>
+
+    <select name="comp" class="form-select" required>
+      <option value="">Select Company</option>
+
+      {% for i in com_data %}
+
+      <option value="{{ i.id }}">{{ i.name }}</option>
+
+      {% endfor %}
+    </select>
+  </div>
+
+  <!-- ADDRESS -->
+
+  <div class="mb-3">
+    <label class="form-label"> Address </label>
+
+    <textarea name="add" class="form-control" rows="3" required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add Employee</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Issue Book | Library Management{% endblock %}
+{% block content %}
+<div class="form-card wide">
+    <h2>📕 Book Issue Form</h2>
+    <p class="muted">Enter the book and student details.</p>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <label>{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+                <div class="error">{{ field.errors }}</div>
+            {% endif %}
+        {% endfor %}
+        <div class="button-row">
+            <a class="btn gray" href="{% url 'dashboard' %}">Back</a>
+            <button class="btn blue" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
